@@ -1,25 +1,3 @@
-# WYF - Watch Your Figure
-
-Simple CSS "plugin" for toggle-styled figure elements (Watch Your Figure)
-
-- Pure CSS - zero JavaScript
-- Only 2.8 kB
-- Fully responsive
-- Only one class name
-
-## The HTML
-```
-<figure class="wyf">
-    <img src="/images/pig.svg" alt="Pig">
-    <input type="checkbox">
-    <figcaption>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ullam hic, nostrum praesentium repellat molestias culpa nemo placeat, alias facere voluptate quidem saepe quisquam nam quas accusamus adipisci provident architecto?</p>
-    </figcaption>
-</figure>
-```
-
-## The CSS
-```
 figure.wyf {
     position: relative;
 }
@@ -81,4 +59,3 @@ figure.wyf input[type="checkbox"]:nth-of-type(5):checked + figcaption {
         visibility: hidden;
     }
 }
-```

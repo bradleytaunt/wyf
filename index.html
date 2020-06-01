@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Watch Your Figure</title>
+    <link rel="stylesheet" href="wyf.css">
+</head>
+<style>
+    @import url('https://opentype.netlify.com/et-book/index.css');
+    * {box-sizing: border-box;}
+    body{background:beige;font-family:"et-book","Georgia",serif;font-size:20px;line-height:1.6;margin:0 0 0 4rem;max-width:700px;padding:2rem;}
+    h1{margin-top:0;}
+    img{background:white;box-shadow:0 8px 12px rgba(0,0,0,0.2), 0 22px 12px -18px rgba(0,0,0,0.2);padding:1rem;width:100%;}
+    figure{margin:0 0 2rem;}
+    figure figcaption{font-size: 16px;}
+    figure figcaption p {margin-top:0;}
+    figure figcaption p:last-of-type {margin-bottom:0;}
+    ul li {margin-bottom:1rem;}
+    hr {margin:2rem 0;}
+    pre{overflow:auto;padding:20px;background:#f9f9f9;}
+    @media(max-width:1100px){body{margin:0;max-width:100%;padding:1rem;}}
+</style>
+<body>
+    <header>
+        <h1>Watch Your Figure</h1>
+        <p>An extremely simplistic CSS "plugin" that toggles the figcaption for individual figure elements.</p>
+        <ul>
+            <li>Pure CSS - zero JavaScript</li>
+            <li>Only 2.8 kB</li>
+            <li>Fully responsive</li>
+            <li>Only one class name</li>
+        </ul>
+        <p>The icons used for the toggle are base64-based, so it is very easy to swap them out with your own. Feel free to experiment and break this as much as possible!</p>
+        <h3>Why make this?</h3>
+        <p>Boredom, mostly. I'm also obsessed with doing as much "fancy" web things as I can without using any JavaScript. If you're interested, I have a <a href="https://uglyduck.ca">blog</a> where I write about design, CSS and mockup tutorials every once in a while.</p>
+        <hr>
+    </header>
+    <main>
+        <h2>Examples</h2>
+        <figure class="wyf">
+            <img src="/images/duck.svg" alt="Duck">
+            <input type="checkbox">
+            <figcaption>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, asperiores officiis ipsam nisi perspiciatis deleniti expedita blanditiis odit iure libero quam quaerat maxime aspernatur consequatur esse eaque voluptates aliquam tempora.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, asperiores officiis ipsam nisi perspiciatis deleniti expedita blanditiis odit iure libero quam quaerat maxime aspernatur consequatur esse eaque voluptates aliquam tempora.</p>
+            </figcaption>
+        </figure>
+        <figure class="wyf">
+            <img src="/images/moose.svg" alt="Moose">
+            <input type="checkbox">
+            <figcaption>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ullam hic, nostrum praesentium repellat molestias culpa nemo placeat, alias facere voluptate quidem saepe quisquam nam quas accusamus adipisci provident architecto?</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum quidem omnis nam numquam nihil assumenda magni. Et nam aut impedit, totam quod deserunt voluptatem molestias ad labore obcaecati dolor quaerat.</p>
+            </figcaption>
+        </figure>
+        <figure class="wyf">
+            <img src="/images/pig.svg" alt="Pig">
+            <input type="checkbox">
+            <figcaption>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ullam hic, nostrum praesentium repellat molestias culpa nemo placeat, alias facere voluptate quidem saepe quisquam nam quas accusamus adipisci provident architecto?</p>
+            </figcaption>
+        </figure>
+        <hr>
+        <h2>Grab-&-Go</h2>
+        <p>Feel free to fork / download the CSS file directly here: <a href="">github-link.com</a></p>
+        <p>You can also just copy/paste the code directly below:</p>
+        <h3>The HTML</h3>
+        <pre>
+&lt;figure class="wyf"&gt;
+    &lt;img src="moose.svg" alt="Moose"&gt;
+    &lt;input type="checkbox"&gt;
+    &lt;figcaption&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ullam hic, nostrum praesentium repellat molestias culpa nemo placeat, alias facere voluptate quidem saepe quisquam nam quas accusamus adipisci provident architecto?&lt;p&gt;
+        &lt;p&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum quidem omnis nam numquam nihil assumenda magni. Et nam aut impedit, totam quod deserunt voluptatem molestias ad labore obcaecati dolor quaerat.&lt;p&gt;
+    &lt;figcaption&gt;
+&lt;/figure&gt;</pre>
+        <h3>The CSS</h3>
+        <pre>
+figure.wyf {
+    position: relative;
+}
+figure.wyf figcaption {
+    background: rgba(0,0,0,0.05);
+    opacity: 0;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    transition: .3s ease-in-out all;
+    width: 250px;
+    z-index: -1;
+}
+
+figure.wyf input[type="checkbox"] {
+    -moz-appearance: none;
+    appearance: none;
+    background: white url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyB2aWV3Qm94PScwIDAgNTEyIDUxMic+PHRpdGxlPmlvbmljb25zLXY1LWU8L3RpdGxlPjxwYXRoIGQ9J00xNjAsMTY0czEuNDQtMzMsMzMuNTQtNTkuNDZDMjEyLjYsODguODMsMjM1LjQ5LDg0LjI4LDI1Niw4NGMxOC43My0uMjMsMzUuNDcsMi45NCw0NS40OCw3LjgyQzMxOC41OSwxMDAuMiwzNTIsMTIwLjYsMzUyLDE2NGMwLDQ1LjY3LTI5LjE4LDY2LjM3LTYyLjM1LDg5LjE4UzI0OCwyOTguMzYsMjQ4LDMyNCcgc3R5bGU9J2ZpbGw6bm9uZTtzdHJva2U6IzAwMDtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDtzdHJva2Utd2lkdGg6NDBweCcvPjxjaXJjbGUgY3g9JzI0OCcgY3k9JzM5OS45OScgcj0nMzInLz48L3N2Zz4=") no-repeat center;
+    background-size: 20px;
+    border: 1px solid lightgrey;
+    cursor: pointer;
+    height: 20px;
+    outline: none;
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+}
+figure.wyf input[type="checkbox"]:hover {
+    background-color: #f9f9f9;
+}
+figure.wyf input[type="checkbox"]:checked {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyB2aWV3Qm94PScwIDAgNTEyIDUxMic+PHRpdGxlPmlvbmljb25zLXY1LWw8L3RpdGxlPjxsaW5lIHgxPSczNjgnIHkxPSczNjgnIHgyPScxNDQnIHkyPScxNDQnIHN0eWxlPSdmaWxsOm5vbmU7c3Ryb2tlOiMwMDA7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDozMnB4Jy8+PGxpbmUgeDE9JzM2OCcgeTE9JzE0NCcgeDI9JzE0NCcgeTI9JzM2OCcgc3R5bGU9J2ZpbGw6bm9uZTtzdHJva2U6IzAwMDtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLXdpZHRoOjMycHgnLz48L3N2Zz4=");
+}
+/* You need to add more items here if you exceed the default amount (5) */
+figure.wyf input[type="checkbox"]:nth-of-type(1):checked + figcaption,
+figure.wyf input[type="checkbox"]:nth-of-type(2):checked + figcaption,
+figure.wyf input[type="checkbox"]:nth-of-type(3):checked + figcaption,
+figure.wyf input[type="checkbox"]:nth-of-type(4):checked + figcaption,
+figure.wyf input[type="checkbox"]:nth-of-type(5):checked + figcaption {
+    right: -250px;
+    opacity: 1;
+}</pre>
+    </main>
+    <footer>
+        <hr>
+        <p><small>Created by <a href="https://uglyduck.ca">Bradley Taunt</a> with &hearts; for the web.</small></p>
+    </footer>
+</body>
+</html>
